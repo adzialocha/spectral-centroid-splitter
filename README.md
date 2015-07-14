@@ -2,6 +2,8 @@
 
 Splits a uncompressed wav file into small fractions and sorts them after a [spectral-centroid](https://en.wikipedia.org/wiki/Spectral_centroid) analysis.
 
+Writes fractions as wave audio file, json data for further processing and png fft analysis plot figure in specified output directory.
+
 ### Requirements
 
 * python 2.7
@@ -10,7 +12,7 @@ Splits a uncompressed wav file into small fractions and sorts them after a [spec
 
 ### Usage
 
-'''
+```
 usage: spectral-centroid-splitter.py [-h] [--duration [ms]] [--sort-grid [hz]]
                                      [--output-dir path]
                                      input-wav-file
@@ -23,13 +25,13 @@ optional arguments:
   --duration [ms]    duration of one wave fraction (in milliseconds)
   --sort-grid [hz]   sort grid after spectral analysis (in hz steps)
   --output-dir path  output directory path
-'''
+```
 
 ### Example
 
-`python spectral-centroid-splitter.py test.wav --duration 150 --sort-grid 50 --output-dir .`
+`python spectral-centroid-splitter.py test.wav --duration 50 --sort-grid 100`
 
-'''
+```
 Name                  "test"
 Duration              4.595021s
 Sample-Rate           16bit
@@ -38,8 +40,8 @@ Fraction-Size-Frames  2397
 Fraction-Sort-Grid    100
 Fraction-Duration     0.050000s
 Fractions-Count       92
-'''
+```
 
-Example-Output @ `out/1300/test_out_2.png` (spectral centroid at around 1300hz)
+Example output file @ `./out/1300/test_out_2.png` (spectral centroid at around 1300hz)
 
 ![Example](https://github.com/marmorkuchen-net/spectral-centroid-splitter/blob/master/example.png)
